@@ -1,0 +1,66 @@
+<Activity mc:Ignorable="sap sap2010" x:Class="Main" mva:VisualBasic.Settings="{x:Null}" sap:VirtualizedContainerService.HintSize="680,1012" sap2010:WorkflowViewState.IdRef="ActivityBuilder_1" xmlns="http://schemas.microsoft.com/netfx/2009/xaml/activities" xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" xmlns:mva="clr-namespace:Microsoft.VisualBasic.Activities;assembly=System.Activities" xmlns:sap="http://schemas.microsoft.com/netfx/2009/xaml/activities/presentation" xmlns:sap2010="http://schemas.microsoft.com/netfx/2010/xaml/activities/presentation" xmlns:scg="clr-namespace:System.Collections.Generic;assembly=mscorlib" xmlns:ui="http://schemas.uipath.com/workflow/activities" xmlns:uia="clr-namespace:UiPath.IBMWatsonLanguageTranslator.Activities;assembly=UiPath.IBMWatsonLanguageTranslator.Activities" xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml">
+  <TextExpression.NamespacesForImplementation>
+    <scg:List x:TypeArguments="x:String" Capacity="21">
+      <x:String>System.Activities</x:String>
+      <x:String>System.Activities.Statements</x:String>
+      <x:String>System.Activities.Expressions</x:String>
+      <x:String>System.Activities.Validation</x:String>
+      <x:String>System.Activities.XamlIntegration</x:String>
+      <x:String>Microsoft.VisualBasic</x:String>
+      <x:String>Microsoft.VisualBasic.Activities</x:String>
+      <x:String>System</x:String>
+      <x:String>System.Collections</x:String>
+      <x:String>System.Collections.Generic</x:String>
+      <x:String>System.Data</x:String>
+      <x:String>System.Diagnostics</x:String>
+      <x:String>System.Drawing</x:String>
+      <x:String>System.IO</x:String>
+      <x:String>System.Linq</x:String>
+      <x:String>System.Net.Mail</x:String>
+      <x:String>System.Xml</x:String>
+      <x:String>System.Xml.Linq</x:String>
+      <x:String>UiPath.Core</x:String>
+      <x:String>UiPath.Core.Activities</x:String>
+      <x:String>System.Windows.Markup</x:String>
+    </scg:List>
+  </TextExpression.NamespacesForImplementation>
+  <TextExpression.ReferencesForImplementation>
+    <scg:List x:TypeArguments="AssemblyReference" Capacity="16">
+      <AssemblyReference>System.Activities</AssemblyReference>
+      <AssemblyReference>Microsoft.VisualBasic</AssemblyReference>
+      <AssemblyReference>mscorlib</AssemblyReference>
+      <AssemblyReference>System.Data</AssemblyReference>
+      <AssemblyReference>System</AssemblyReference>
+      <AssemblyReference>System.Drawing</AssemblyReference>
+      <AssemblyReference>System.Core</AssemblyReference>
+      <AssemblyReference>System.Xml</AssemblyReference>
+      <AssemblyReference>System.Xml.Linq</AssemblyReference>
+      <AssemblyReference>PresentationFramework</AssemblyReference>
+      <AssemblyReference>WindowsBase</AssemblyReference>
+      <AssemblyReference>PresentationCore</AssemblyReference>
+      <AssemblyReference>System.Xaml</AssemblyReference>
+      <AssemblyReference>UiPath.System.Activities</AssemblyReference>
+      <AssemblyReference>UiPath.UiAutomation.Activities</AssemblyReference>
+      <AssemblyReference>UiPath.System.Activities.Design</AssemblyReference>
+    </scg:List>
+  </TextExpression.ReferencesForImplementation>
+  <Sequence sap:VirtualizedContainerService.HintSize="426,847" sap2010:WorkflowViewState.IdRef="Sequence_1">
+    <Sequence.Variables>
+      <Variable x:TypeArguments="x:String" Default="s2Znh8bCFBUcrNbB4S0Y8LJIgjsZvsJjF83hYUWhjOW0" Name="APIKey" />
+      <Variable x:TypeArguments="x:String" Name="outText" />
+      <Variable x:TypeArguments="x:String" Name="temp1" />
+      <Variable x:TypeArguments="x:String" Default="https://api.eu-gb.language-translator.watson.cloud.ibm.com/instances/e150866b-8338-4a6e-8953-25048423609b" Name="APIUrl" />
+    </Sequence.Variables>
+    <sap:WorkflowViewStateService.ViewState>
+      <scg:Dictionary x:TypeArguments="x:String, x:Object">
+        <x:Boolean x:Key="IsExpanded">True</x:Boolean>
+      </scg:Dictionary>
+    </sap:WorkflowViewStateService.ViewState>
+    <ui:ReadTextFile Content="[temp1]" DisplayName="Read Text File" FileName="Input.txt" sap:VirtualizedContainerService.HintSize="384,79" sap2010:WorkflowViewState.IdRef="ReadTextFile_1" />
+    <uia:TranslateText APIKey="-H2bYX0ycgyOc5AP5iIdVwCapHLp5EcPjOmalT6KyGJ2" DisplayName="Translate Text" From="English" sap:VirtualizedContainerService.HintSize="384,86" sap2010:WorkflowViewState.IdRef="TranslateText_1" Output="[outText]" Text="[temp1]" To="French" URL="https://api.eu-gb.language-translator.watson.cloud.ibm.com/instances/1097b59f-31a5-4afe-b98a-3df7c4dfbe40" />
+    <uia:TranslateText APIKey="C0Gk5HRFoFLKueyMg5vIWEhIdT93vVqBBQ-LGUH1ePQG" DisplayName="Translate Text" From="French" sap:VirtualizedContainerService.HintSize="384,86" sap2010:WorkflowViewState.IdRef="TranslateText_2" Output="[temp1]" Text="[outText]" To="German" URL="https://api.eu-gb.language-translator.watson.cloud.ibm.com/instances/3dd41e33-7f83-4186-b8c8-fcda2ec06f86" />
+    <uia:TranslateText APIKey="8iKWbpaow9A1Fwf84Xrmz515gAW9m6sAMqLtck5JhT5a" DisplayName="Translate Text" From="German" sap:VirtualizedContainerService.HintSize="384,86" sap2010:WorkflowViewState.IdRef="TranslateText_3" Output="[outText]" Text="[temp1]" To="Italian" URL="https://api.eu-gb.language-translator.watson.cloud.ibm.com/instances/299be92f-8f28-4363-934a-b32d40f6eeab" />
+    <uia:TranslateText APIKey="8iKWbpaow9A1Fwf84Xrmz515gAW9m6sAMqLtck5JhT5a" DisplayName="Translate Text" From="Italian" sap:VirtualizedContainerService.HintSize="384,86" sap2010:WorkflowViewState.IdRef="TranslateText_4" Output="[temp1]" Text="[outText]" To="English" URL="https://api.eu-gb.language-translator.watson.cloud.ibm.com/instances/299be92f-8f28-4363-934a-b32d40f6eeab" />
+    <ui:WriteTextFile DisplayName="Write Text File" FileName="Output.txt" sap:VirtualizedContainerService.HintSize="384,132" sap2010:WorkflowViewState.IdRef="WriteTextFile_1" Text="[temp1]" />
+  </Sequence>
+</Activity>
